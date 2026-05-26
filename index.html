@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio Eka Ade Putra Kurniawan - Sistem Informasi & Quality Control Specialist">
+  <title>Eka Ade Putra Kurniawan | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- --- HEADER & NAVIGATION --- -->
+  <header>
+    <div class="container nav-container">
+      <a href="#hero" class="logo">EKA.ADE</a>
+      
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li>
+            <a href="#hero" class="nav-link">
+              <span class="lang-id">Beranda</span>
+              <span class="lang-en">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#about" class="nav-link">
+              <span class="lang-id">Tentang</span>
+              <span class="lang-en">About</span>
+            </a>
+          </li>
+          <li>
+            <a href="#experience" class="nav-link">
+              <span class="lang-id">Pengalaman</span>
+              <span class="lang-en">Experience</span>
+            </a>
+          </li>
+          <li>
+            <a href="#projects" class="nav-link">
+              <span class="lang-id">Proyek</span>
+              <span class="lang-en">Projects</span>
+            </a>
+          </li>
+          <li>
+            <a href="#skills" class="nav-link">
+              <span class="lang-id">Keahlian</span>
+              <span class="lang-en">Skills</span>
+            </a>
+          </li>
+          <li>
+            <a href="#certificates" class="nav-link">
+              <span class="lang-id">Sertifikat</span>
+              <span class="lang-en">Credentials</span>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="nav-link">
+              <span class="lang-id">Kontak</span>
+              <span class="lang-en">Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Language Switcher Card -->
+        <button class="toggle-btn lang-switch" id="lang-toggle" aria-label="Ganti Bahasa / Switch Language">
+          <span class="lang-id">EN</span>
+          <span class="lang-en">ID</span>
+        </button>
+
+        <!-- Theme Toggle Card -->
+        <button class="toggle-btn" id="theme-toggle" aria-label="Ganti Tema / Toggle Theme">
+          <!-- Sun Icon -->
+          <svg class="sun-icon" style="display:none;" viewBox="0 0 24 24">
+            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/>
+          </svg>
+          <!-- Moon Icon -->
+          <svg class="moon-icon" viewBox="0 0 24 24">
+            <path d="M9.37 5.51c-.18.64-.27 1.31-.27 2 0 4.08 3.32 7.4 7.4 7.4.69 0 1.36-.09 2-.27 1.53-3.45-.98-7.79-4.89-9.33-1.68-.66-3.48-.46-4.24.2zM12.3 21h-.16c-5.54 0-10-4.46-10-10 0-4.63 3.16-8.58 7.58-9.69.54-.14 1.08.18 1.25.71.16.53-.08 1.11-.58 1.38C7.14 5.05 5.14 8.28 5.14 11c0 3.78 3.08 6.86 6.86 6.86 2.72 0 5.16-1.6 6.22-4.08.23-.53.84-.81 1.38-.58.53.22.8.84.58 1.38-1.57 3.8-5.32 6.42-9.88 6.42z"/>
+          </svg>
+        </button>
+
+        <!-- Hamburger Icon for Mobile -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- --- HERO SECTION --- -->
+  <section id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content reveal">
+        <div class="hero-intro">
+          <span class="lang-id">Halo! Saya</span>
+          <span class="lang-en">Hello! I'm</span>
+        </div>
+        <h1 class="hero-name">Eka Ade Putra<br>Kurniawan</h1>
+        <div class="hero-subtitle">
+          <span class="typed-text" id="typed-text"></span>
+        </div>
+        
+        <p class="hero-description lang-id">Mahasiswa Sistem Informasi di Universitas Presiden dengan pengalaman kerja profesional di Industri Manufaktur sebagai Staf Produksi & Quality Control. Ahli dalam inspeksi kualitas, analisis data produksi, dan AutoCAD.</p>
+        <p class="hero-description lang-en">An Information Systems student at President University with a solid professional background in the Manufacturing Industry as a Production & Quality Control Specialist. Experienced in quality inspection, production data analysis, and AutoCAD.</p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="neo-btn">
+            <span class="lang-id">Hubungi Saya</span>
+            <span class="lang-en">Get in Touch</span>
+          </a>
+          <a href="assets/CV Eka Ade.pdf" download class="neo-btn btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" style="margin-right: 8px; vertical-align: middle;">
+              <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z" fill="currentColor"/>
+            </svg>
+            <span class="lang-id">Unduh CV</span>
+            <span class="lang-en">Download CV</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" style="transition-delay: 0.1s;">
+        <div class="hero-card">
+          <div class="hero-slider-container">
+            <div class="hero-slider">
+              <img src="assets/photo1.png" alt="Eka Ade - Red Background" class="slider-img active">
+              <img src="assets/photo2.png" alt="Eka Ade - Tea Garden" class="slider-img">
+            </div>
+            <button class="slider-control prev" id="slider-prev" aria-label="Foto Sebelumnya">&larr;</button>
+            <button class="slider-control next" id="slider-next" aria-label="Foto Selanjutnya">&rarr;</button>
+            <div class="slider-dots">
+              <span class="slider-dot active" data-index="0"></span>
+              <span class="slider-dot" data-index="1"></span>
+            </div>
+          </div>
+          <div class="hero-card-info">
+            <span class="neo-badge accent">LULUSAN SMK</span>
+            <h3>Eka Ade P. K.</h3>
+            <p>
+              <span class="lang-id">S1 Sistem Informasi</span>
+              <span class="lang-en">B.S. Information Systems</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- ABOUT SECTION --- -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>
+          <span class="lang-id">Tentang Saya</span>
+          <span class="lang-en">About Me</span>
+        </h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-details reveal">
+          <h3 class="font-mono">
+            <span class="lang-id">PROFIL PROFESIONAL</span>
+            <span class="lang-en">PROFESSIONAL PROFILE</span>
+          </h3>
+          <p class="lang-id">Saya memiliki kombinasi keterampilan yang unik antara pemahaman sistem informasi digital dan pengalaman praktis di lantai produksi industri manufaktur. Sebagai mantan Production Staff dan Quality Control, saya terbiasa menjaga presisi tinggi, menganalisis efisiensi proses, dan memecahkan masalah (troubleshooting) secara cepat.</p>
+          <p class="lang-en">I possess a unique blend of skills, combining digital information systems knowledge with practical experience on the production floor of the manufacturing industry. As a former Production Staff and Quality Control specialist, I am adept at maintaining high precision, analyzing process efficiency, and handling troubleshooting under fast-paced conditions.</p>
+          <p class="lang-id">Pendidikan saya di jurusan Sistem Informasi Universitas Presiden memperkuat kemampuan analitis saya dalam merancang alur kerja, mengolah data operasional, dan mengembangkan sistem pelaporan yang efisien demi mendorong kemajuan industri di era otomatisasi digital.</p>
+          <p class="lang-en">My ongoing education in Information Systems at President University strengthens my analytical skills to map workflows, manage operational data, and develop efficient reporting systems to drive industrial progress in the era of digital automation.</p>
+          <a href="#experience" class="neo-btn btn-white">
+            <span class="lang-id">Lihat Riwayat Kerja &rarr;</span>
+            <span class="lang-en">View Work History &rarr;</span>
+          </a>
+        </div>
+
+        <div class="about-info-boxes reveal" style="transition-delay: 0.1s;">
+          <h3 class="font-mono">
+            <span class="lang-id">PENDIDIKAN</span>
+            <span class="lang-en">EDUCATION</span>
+          </h3>
+
+          <!-- Edu Box 1 -->
+          <div class="neo-box info-box">
+            <div class="info-box-header">
+              <div>
+                <h3>Universitas Presiden</h3>
+                <p class="sub lang-id">S1 Sistem Informasi</p>
+                <p class="sub lang-en">Bachelor of Information Systems</p>
+              </div>
+              <span class="date">2023 - Pres</span>
+            </div>
+            <p style="margin: 0; font-size: 0.9rem;" class="font-mono lang-id">Fokus: Analisis Data, Manajemen Database, Sistem Informasi Bisnis.</p>
+            <p style="margin: 0; font-size: 0.9rem;" class="font-mono lang-en">Focus: Data Analysis, Database Management, Business Information Systems.</p>
+          </div>
+
+          <!-- Edu Box 2 -->
+          <div class="neo-box info-box">
+            <div class="info-box-header">
+              <div>
+                <h3>SMK Ananda Mitra Industri Deltamas</h3>
+                <p class="sub lang-id">Teknik Elektronika Industri</p>
+                <p class="sub lang-en">Industrial Electronics Engineering</p>
+              </div>
+              <span class="date">2019 - 2022</span>
+            </div>
+            <p style="margin: 0; font-size: 0.9rem;" class="font-mono lang-id">Kompetensi Utama: Sistem Kontrol Elektronika, Otomasi Industri, Troubleshooting Perangkat Keras.</p>
+            <p style="margin: 0; font-size: 0.9rem;" class="font-mono lang-en">Core Competencies: Electronics Control Systems, Industrial Automation, Hardware Troubleshooting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- EXPERIENCE SECTION --- -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <h2>
+          <span class="lang-id">Pengalaman Kerja</span>
+          <span class="lang-en">Work Experience</span>
+        </h2>
+      </div>
+
+      <div class="timeline">
+        <!-- Job 1 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="neo-box timeline-content">
+            <span class="timeline-date">2025 - 2026</span>
+            <h3>Quality Control</h3>
+            <p class="timeline-company">PT. Korina Abadi Tehnik <span style="font-size: 0.85rem; font-weight: normal;">(Magang / Intern)</span></p>
+            <ul class="timeline-details lang-id">
+              <li>Melakukan inspeksi kualitas terhadap material masuk dan produk jadi sesuai standar perusahaan.</li>
+              <li>Menganalisis data kualitas produk secara berkala untuk mengidentifikasi ketidaksesuaian produksi.</li>
+              <li>Mengusulkan dan merancang perbaikan pada alur pelaporan kualitas departemen.</li>
+              <li>Mengembangkan sistem reporting digital sederhana untuk meningkatkan efisiensi operasional tim.</li>
+              <li>Mendukung peningkatan akurasi pengecekan QC dan meminimalisir persentase produk cacat (defect).</li>
+            </ul>
+            <ul class="timeline-details lang-en">
+              <li>Performed quality inspections on incoming materials and finished goods in compliance with quality standards.</li>
+              <li>Analyzed product quality metrics regularly to identify manufacturing non-conformities.</li>
+              <li>Proposed and structured optimizations for the department's quality reporting workflows.</li>
+              <li>Developed simple digital reporting workflows to boost operational reporting efficiency.</li>
+              <li>Supported quality control processes to enhance accuracy and effectiveness.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="neo-box timeline-content">
+            <span class="timeline-date">2022 - 2024</span>
+            <h3>Production Staff</h3>
+            <p class="timeline-company">PT. Lestari Teknik Plastikatama <span style="font-size: 0.85rem; font-weight: normal;">(Magang / Intern)</span></p>
+            <ul class="timeline-details lang-id">
+              <li>Mengelola dan memonitor kelancaran proses produksi harian untuk memastikan target output tercapai.</li>
+              <li>Menganalisis data produksi (manpower, kapasitas mesin, dan GSPH) untuk meningkatkan efisiensi kerja.</li>
+              <li>Memastikan produk yang dihasilkan memenuhi standar toleransi dan kriteria kualitas perusahaan.</li>
+              <li>Melakukan pencatatan administratif dan pelaporan logistik hasil produksi secara akurat dan real-time.</li>
+              <li>Berkontribusi aktif dalam koordinasi lintas tim produksi dan perbaikan berkelanjutan (kaizen) di lantai pabrik.</li>
+            </ul>
+            <ul class="timeline-details lang-en">
+              <li>Managed and monitored daily production lines to guarantee target output yields were met.</li>
+              <li>Analyzed production metrics (manpower efficiency, machine output, and GSPH) to boost throughput.</li>
+              <li>Ensured manufactured parts conformed strictly to tolerancing and corporate quality benchmarks.</li>
+              <li>Recorded manufacturing logs and reported real-time production yields accurately to planners.</li>
+              <li>Contributed actively to cross-functional production team alignment and continuous improvements (kaizen) on the shop floor.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- PROJECTS SECTION --- -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2>
+          <span class="lang-id">Proyek Saya</span>
+          <span class="lang-en">My Projects</span>
+        </h2>
+      </div>
+
+      <!-- --- BIDANG PERCODINGAN & IT --- -->
+      <div class="projects-category-header reveal">
+        <h3 style="background-color: var(--secondary); border: var(--border-width) solid var(--border-color); box-shadow: 4px 4px 0px var(--border-color);">
+          <span class="lang-id">Coding &amp; Sistem Informasi</span>
+          <span class="lang-en">Coding &amp; Information Systems</span>
+        </h3>
+      </div>
+
+      <div class="projects-grid" style="margin-bottom: 5rem;">
+        <!-- Project 1: ERP System Gas Supplier -->
+        <div class="neo-box neo-box-interactive project-card reveal">
+          <div class="project-visual" style="background-color: var(--secondary);">
+            <!-- SVG illustration: Gas cylinder and logistics dashboard -->
+            <svg viewBox="0 0 100 100">
+              <rect x="38" y="30" width="24" height="45" rx="8" fill="none" stroke="#000" stroke-width="4"/>
+              <path d="M 43,30 C 43,20 57,20 57,30" fill="none" stroke="#000" stroke-width="4"/>
+              <circle cx="50" cy="20" r="4" fill="var(--accent)" stroke="#000" stroke-width="2"/>
+              <line x1="20" y1="50" x2="38" y2="50" stroke="#000" stroke-width="3"/>
+              <line x1="62" y1="50" x2="80" y2="50" stroke="#000" stroke-width="3"/>
+              <circle cx="20" cy="50" r="5" fill="var(--primary)" stroke="#000" stroke-width="2"/>
+              <circle cx="80" cy="50" r="5" fill="var(--success)" stroke="#000" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="project-tags">
+            <span class="neo-badge primary">ERP System</span>
+            <span class="neo-badge secondary">Database (SQL)</span>
+            <span class="neo-badge success">Laravel</span>
+            <span class="neo-badge accent">Web Integration</span>
+          </div>
+          <h3 class="project-title">
+            <span class="lang-id">ERP System Gas Supplier</span>
+            <span class="lang-en">ERP System Gas Supplier</span>
+          </h3>
+          <p class="project-desc lang-id">
+            Sistem Enterprise Resource Planning (ERP) terintegrasi untuk mengelola distribusi tabung gas, manajemen inventaris stok, pelacakan armada pengiriman, dan faktur penagihan pelanggan secara otomatis.
+          </p>
+          <p class="project-desc lang-en">
+            An integrated Enterprise Resource Planning (ERP) system designed to manage gas cylinder logistics, inventory stock levels, fleet dispatch tracking, and automated client billing.
+          </p>
+          <div class="project-links">
+            <a href="#contact" class="neo-btn btn-white btn-sm" style="font-size: 0.8rem; padding: 0.5rem 1rem;">
+              <span class="lang-id">Tanyakan Detail &rarr;</span>
+              <span class="lang-en">Ask for Details &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- --- BIDANG MANUFAKTUR & DESAIN --- -->
+      <div class="projects-category-header reveal">
+        <h3 style="background-color: var(--success); border: var(--border-width) solid var(--border-color); box-shadow: 4px 4px 0px var(--border-color);">
+          <span class="lang-id">Manufaktur &amp; Desain Industri</span>
+          <span class="lang-en">Manufacturing &amp; Industrial Design</span>
+        </h3>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 2: GSPH Productivity Dashboard -->
+        <div class="neo-box neo-box-interactive project-card reveal">
+          <div class="project-visual" style="background-color: var(--primary);">
+            <svg viewBox="0 0 100 100">
+              <line x1="20" y1="80" x2="80" y2="80" stroke="#000" stroke-width="4"/>
+              <line x1="20" y1="20" x2="20" y2="80" stroke="#000" stroke-width="4"/>
+              <polyline points="20,70 40,55 60,60 80,30" fill="none" stroke="var(--accent)" stroke-width="5"/>
+              <rect x="35" y="15" width="45" height="25" fill="#fff" stroke="#000" stroke-width="3" transform="rotate(-5, 55, 27)"/>
+              <circle cx="80" cy="30" r="5" fill="var(--success)" stroke="#000" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="project-tags">
+            <span class="neo-badge secondary">Data Analysis</span>
+            <span class="neo-badge success">QC Optimization</span>
+            <span class="neo-badge primary">Process Mapping</span>
+          </div>
+          <h3 class="project-title">
+            <span class="lang-id">GSPH Productivity Dashboard</span>
+            <span class="lang-en">GSPH Productivity Dashboard</span>
+          </h3>
+          <p class="project-desc lang-id">
+            Dashboard analitik digital untuk mengukur produktivitas lini per jam kerja (GSPH - Good Strokes Per Hour) dan efisiensi alokasi manpower. Menampilkan visualisasi performa target output harian pabrik.
+          </p>
+          <p class="project-desc lang-en">
+            An analytical productivity dashboard designed to monitor machine Strokes Per Hour (GSPH) and manpower allocation efficiency. Features performance charts to trace daily production goals.
+          </p>
+          <div class="project-links">
+            <a href="#contact" class="neo-btn btn-white btn-sm" style="font-size: 0.8rem; padding: 0.5rem 1rem;">
+              <span class="lang-id">Tanyakan Detail &rarr;</span>
+              <span class="lang-en">Ask for Details &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3: Progressive Die AutoCAD Drafts -->
+        <div class="neo-box neo-box-interactive project-card reveal" style="transition-delay: 0.1s;">
+          <div class="project-visual" style="background-color: var(--success);">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="25" fill="none" stroke="#000" stroke-width="3" stroke-dasharray="4"/>
+              <rect x="35" y="35" width="30" height="30" fill="none" stroke="#000" stroke-width="4"/>
+              <line x1="15" y1="50" x2="85" y2="50" stroke="#000" stroke-width="2"/>
+              <line x1="50" y1="15" x2="50" y2="85" stroke="#000" stroke-width="2"/>
+              <circle cx="50" cy="50" r="6" fill="var(--secondary)" stroke="#000" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="project-tags">
+            <span class="neo-badge primary">AutoCAD 2D</span>
+            <span class="neo-badge success">Metal Stamping</span>
+            <span class="neo-badge secondary">Technical Drafting</span>
+          </div>
+          <h3 class="project-title">
+            <span class="lang-id">Progressive Die AutoCAD Drafts</span>
+            <span class="lang-en">Progressive Die AutoCAD Drafts</span>
+          </h3>
+          <p class="project-desc lang-id">
+            Kumpulan cetak biru teknis progressive die metal stamping untuk produksi part industri presisi tinggi. Dioptimalkan untuk meminimalkan sisa material (scrap) dan mempercepat inspeksi dimensi QC.
+          </p>
+          <p class="project-desc lang-en">
+            A collection of technical progressive die blueprints designed for high-precision metal stamping lines. Engineered to minimize material scrap and speed up dimensional QC checks.
+          </p>
+          <div class="project-links">
+            <a href="#contact" class="neo-btn btn-white btn-sm" style="font-size: 0.8rem; padding: 0.5rem 1rem;">
+              <span class="lang-id">Tanyakan Detail &rarr;</span>
+              <span class="lang-en">Ask for Details &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4: Shopfloor Layout Optimization -->
+        <div class="neo-box neo-box-interactive project-card reveal" style="transition-delay: 0.2s;">
+          <div class="project-visual" style="background-color: var(--accent);">
+            <svg viewBox="0 0 100 100">
+              <rect x="20" y="20" width="25" height="20" fill="var(--primary-light)" stroke="#000" stroke-width="3"/>
+              <rect x="55" y="20" width="25" height="20" fill="var(--primary-light)" stroke="#000" stroke-width="3"/>
+              <rect x="35" y="60" width="30" height="20" fill="var(--secondary)" stroke="#000" stroke-width="3"/>
+              <path d="M 32.5,40 L 32.5,50 L 50,50 L 50,60" fill="none" stroke="#000" stroke-width="3"/>
+              <path d="M 67.5,40 L 67.5,50 L 50,50 L 50,60" fill="none" stroke="#000" stroke-width="3"/>
+              <circle cx="50" cy="50" r="4" fill="var(--accent)" stroke="#000" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="project-tags">
+            <span class="neo-badge primary">AutoCAD 2D</span>
+            <span class="neo-badge success">Layout Optimization</span>
+            <span class="neo-badge secondary">Workplace Safety</span>
+          </div>
+          <h3 class="project-title">
+            <span class="lang-id">Optimasi Layout Lantai Produksi</span>
+            <span class="lang-en">Shopfloor Layout Optimization</span>
+          </h3>
+          <p class="project-desc lang-id">
+            Desain ulang tata letak area stamping dan perakitan menggunakan AutoCAD untuk merampingkan alur material (material flow), mengurangi bottleneck pemindahan part, serta menyelaraskan dengan regulasi K3.
+          </p>
+          <p class="project-desc lang-en">
+            Redesigned assembly and stamping floor layouts using AutoCAD. Streamlined material flow handling, resolved bottleneck placements, and aligned shop floors with K3 safety procedures.
+          </p>
+          <div class="project-links">
+            <a href="#contact" class="neo-btn btn-white btn-sm" style="font-size: 0.8rem; padding: 0.5rem 1rem;">
+              <span class="lang-id">Tanyakan Detail &rarr;</span>
+              <span class="lang-en">Ask for Details &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- SKILLS SECTION --- -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2>
+          <span class="lang-id">Keahlian Saya</span>
+          <span class="lang-en">My Skills</span>
+        </h2>
+      </div>
+
+      <div class="skills-filter reveal">
+        <button class="filter-btn active" data-filter="all">
+          <span class="lang-id">Semua</span>
+          <span class="lang-en">All</span>
+        </button>
+        <button class="filter-btn" data-filter="industrial">
+          <span class="lang-id">Industri & QC</span>
+          <span class="lang-en">Industrial & QC</span>
+        </button>
+        <button class="filter-btn" data-filter="it-systems">
+          <span class="lang-id">Sistem Informasi / IT</span>
+          <span class="lang-en">Info Systems / IT</span>
+        </button>
+        <button class="filter-btn" data-filter="tools">
+          <span class="lang-id">Software & Tools</span>
+          <span class="lang-en">Software & Tools</span>
+        </button>
+      </div>
+
+      <div class="skills-grid reveal">
+        <!-- Card 1: Industrial (Metal Stamping & QC) -->
+        <div class="skill-card" data-category="industrial">
+          <span class="neo-badge accent">Manufacturing</span>
+          <h3>
+            <span class="lang-id">Operasional Industri</span>
+            <span class="lang-en">Industrial Operations</span>
+          </h3>
+          <div class="skill-list">
+            <span class="skill-item">Quality Control & Inspection</span>
+            <span class="skill-item">Production Process (Metal Stamping)</span>
+            <span class="skill-item">Finishing & Assembly</span>
+            <span class="skill-item">Measurement Tools (Caliper, Micrometer)</span>
+            <span class="skill-item">Workplace Safety (K3)</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Analysis & Process -->
+        <div class="skill-card" data-category="industrial">
+          <span class="neo-badge success">QC & Optimization</span>
+          <h3>
+            <span class="lang-id">Analisis & Optimasi</span>
+            <span class="lang-en">Analysis & Optimization</span>
+          </h3>
+          <div class="skill-list">
+            <span class="skill-item">Data Analysis Produksi</span>
+            <span class="skill-item">Process Improvement</span>
+            <span class="skill-item">Defect Analysis</span>
+            <span class="skill-item">Troubleshooting Lapangan</span>
+            <span class="skill-item">GSPH Monitoring</span>
+          </div>
+        </div>
+
+        <!-- Card 3: IT & Systems -->
+        <div class="skill-card" data-category="it-systems">
+          <span class="neo-badge secondary">Information Systems</span>
+          <h3>
+            <span class="lang-id">Sistem Informasi</span>
+            <span class="lang-en">Systems & IT</span>
+          </h3>
+          <div class="skill-list">
+            <span class="skill-item">Database Management (SQL)</span>
+            <span class="skill-item">System Analysis & Design</span>
+            <span class="skill-item">Workflow Mapping (DFD/UML)</span>
+            <span class="skill-item">Digital Reporting Systems</span>
+            <span class="skill-item">HTML / CSS / JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Tools & Software -->
+        <div class="skill-card" data-category="tools">
+          <span class="neo-badge primary">Tools</span>
+          <h3>
+            <span class="lang-id">Software & Desain</span>
+            <span class="lang-en">Software & Design</span>
+          </h3>
+          <div class="skill-list">
+            <span class="skill-item">AutoCAD (2D Drafting)</span>
+            <span class="skill-item">Microsoft Excel (Advanced Formulas)</span>
+            <span class="skill-item">Microsoft Office Suite</span>
+            <span class="skill-item">Hardware Troubleshooting</span>
+            <span class="skill-item">Windows/OS Diagnostics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- CERTIFICATES SECTION --- -->
+  <section id="certificates">
+    <div class="container">
+      <div class="section-header">
+        <h2>
+          <span class="lang-id">Kredensial & Dokumen</span>
+          <span class="lang-en">Credentials & Files</span>
+        </h2>
+      </div>
+
+      <div class="certs-grid reveal">
+        <!-- Cert 1: AutoCAD -->
+        <div class="neo-box neo-box-interactive cert-card" data-title="Sertifikat AutoCAD 2D" data-title-en="AutoCAD 2D Course Certificate" data-desc="Telah menyelesaikan kursus AutoCAD 2D Drafting di Surya Computer dengan predikat A (Sangat Baik) pada 12 Maret 2026." data-desc-en="Successfully completed AutoCAD 2D Drafting course at Surya Computer with Grade A (Excellent) on March 12, 2026." data-type="autocad">
+          <div class="cert-thumbnail">
+            <img src="assets/cert-autocad.png" alt="AutoCAD 2D Course Certificate" class="cert-preview-img">
+          </div>
+          <span class="neo-badge primary">Sertifikat Kursus</span>
+          <h3>AutoCAD 2D Drafting</h3>
+          <p class="cert-issuer">Surya Computer • 2026</p>
+        </div>
+
+        <!-- Cert 2: Internship QC -->
+        <div class="neo-box neo-box-interactive cert-card" data-title="Surat Keterangan Magang QC" data-title-en="QC Internship Reference Letter" data-desc="Surat Keterangan Magang dari PT. Korina Abadi Tehnik sebagai Staff Quality Control terhitung mulai tanggal 22 Juli 2025 sampai dengan 9 Januari 2026." data-desc-en="Internship Reference Letter from PT. Korina Abadi Tehnik for Quality Control position, dated July 22, 2025 to January 9, 2026." data-type="korina">
+          <div class="cert-thumbnail">
+            <img src="assets/cert-korina.png" alt="QC Internship Reference Letter" class="cert-preview-img">
+          </div>
+          <span class="neo-badge success">Surat Keterangan</span>
+          <h3>Quality Control Intern</h3>
+          <p class="cert-issuer">PT. Korina Abadi Tehnik • 2026</p>
+        </div>
+
+        <!-- Cert 3: Production Staff Experience -->
+        <div class="neo-box neo-box-interactive cert-card" data-title="Surat Keterangan Kerja Staff Produksi" data-title-en="Production Staff Work Reference" data-desc="Surat Keterangan Kerja dari PT. Agung Sinar Bungkuk untuk penempatan di PT. Lestari Teknik Plastikatama sebagai Staff Produksi/Magang dari 29 Agustus 2022 sampai 1 September 2024." data-desc-en="Work Reference Letter from PT. Agung Sinar Bungkuk placed at PT. Lestari Teknik Plastikatama as Production Staff, from August 29, 2022 to September 1, 2024." data-type="lestari">
+          <div class="cert-thumbnail">
+            <img src="assets/cert-lestari.png" alt="Production Staff Work Reference Letter" class="cert-preview-img">
+          </div>
+          <span class="neo-badge accent">Pengalaman Kerja</span>
+          <h3>Production Staff</h3>
+          <p class="cert-issuer">PT. Agung Sinar Bungkuk / PT. Lestari • 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- CONTACT SECTION --- -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>
+          <span class="lang-id">Hubungi Saya</span>
+          <span class="lang-en">Get in Touch</span>
+        </h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3 class="font-mono">
+            <span class="lang-id">SALURAN KOMUNIKASI</span>
+            <span class="lang-en">COMMUNICATION CHANNELS</span>
+          </h3>
+          <p>
+            <span class="lang-id">Silakan hubungi saya melalui salah satu kontak di bawah ini. Saya terbuka untuk peluang magang, kerja penuh waktu, atau kolaborasi proyek analisis industri.</span>
+            <span class="lang-en">Feel free to reach out via any of the channels below. I am open to internship opportunities, full-time positions, or collaboration on industrial systems analysis.</span>
+          </p>
+
+          <!-- Contact item: Email -->
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <a href="mailto:kirjoputra@gmail.com">kirjoputra@gmail.com</a>
+            </div>
+          </div>
+
+          <!-- Contact item: Phone -->
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.79 6.36 8.58 5.17 8.58 3.94c0-.55-.45-1-1-1H3.98c-.55 0-1 .45-1 1 0 9.39 7.63 17.02 17 17.02.55 0 1-.45 1-1v-3.58c0-.55-.45-1-1-1z"/>
+              </svg>
+            </div>
+            <div class="contact-text">
+              <h4>WhatsApp / Phone</h4>
+              <a href="https://wa.me/6282123265355" target="_blank">+62 821-2326-5355</a>
+            </div>
+          </div>
+
+          <!-- Contact item: LinkedIn -->
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </div>
+            <div class="contact-text">
+              <h4>LinkedIn</h4>
+              <a href="https://www.linkedin.com/in/eka-ade-putra-kurniawan-1061a9325/" target="_blank">eka-ade-putra-kurniawan</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="neo-box contact-form reveal" style="transition-delay: 0.1s;">
+          <h3 class="font-mono">
+            <span class="lang-id">KIRIM PESAN</span>
+            <span class="lang-en">SEND A MESSAGE</span>
+          </h3>
+
+          <form id="portfolio-contact-form">
+            <div class="form-group">
+              <label for="name">
+                <span class="lang-id">Nama Lengkap</span>
+                <span class="lang-en">Full Name</span>
+              </label>
+              <input type="text" id="name" name="name" class="form-input" required placeholder="Eka Ade ...">
+            </div>
+
+            <div class="form-group">
+              <label for="email">
+                <span class="lang-id">Alamat Email</span>
+                <span class="lang-en">Email Address</span>
+              </label>
+              <input type="email" id="email" name="email" class="form-input" required placeholder="name@domain.com">
+            </div>
+
+            <div class="form-group">
+              <label for="message">
+                <span class="lang-id">Pesan Anda</span>
+                <span class="lang-en">Your Message</span>
+              </label>
+              <textarea id="message" name="message" class="form-input" required placeholder="Halo Eka, saya tertarik untuk ..."></textarea>
+            </div>
+
+            <button type="submit" class="neo-btn btn-accent" style="width: 100%;">
+              <span class="lang-id">Kirim Sekarang &rarr;</span>
+              <span class="lang-en">Send Message &rarr;</span>
+            </button>
+
+            <div id="form-status" class="form-status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 EKA ADE PUTRA KURNIAWAN. ALL RIGHTS RESERVED.</p>
+      <p class="credits">
+        <span class="lang-id">Didesain dengan gaya Neo-brutalism untuk performa maksimal</span>
+        <span class="lang-en">Designed with Neo-brutalism style for maximum performance</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- --- CREDENTIALS LIGHTBOX MODAL --- -->
+  <div class="modal" id="certificate-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">X</button>
+      <div class="modal-body">
+        <h3 class="modal-title" id="modal-title">Sertifikat</h3>
+        <p class="modal-desc" id="modal-desc">Deskripsi dokumen...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

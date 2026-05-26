@@ -1,0 +1,12 @@
+{
+  "name": "eka-portfolio-brutalist",
+  "version": "1.0.0",
+  "description": "Bilingual Neo-brutalist Portfolio for Eka Ade Putra Kurniawan",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "author": "Eka Ade Putra Kurniawan",
+  "license": "MIT"
+}

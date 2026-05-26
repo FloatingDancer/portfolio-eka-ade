@@ -1,0 +1,322 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* --- 1. LANGUAGE SWITCHING --- */
+  const langToggle = document.getElementById('lang-toggle');
+  let currentLang = localStorage.getItem('lang') || 'id';
+  
+  // Set initial language
+  document.documentElement.setAttribute('lang', currentLang);
+  
+  langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'id' ? 'en' : 'id';
+    document.documentElement.setAttribute('lang', currentLang);
+    localStorage.setItem('lang', currentLang);
+    
+    // Restart typewriter with new language list
+    initTypewriter();
+  });
+
+  /* --- 2. THEME SWITCHING --- */
+  const themeToggle = document.getElementById('theme-toggle');
+  const sunIcon = themeToggle.querySelector('.sun-icon');
+  const moonIcon = themeToggle.querySelector('.moon-icon');
+  
+  let currentTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  updateThemeIcons(currentTheme);
+  
+  themeToggle.addEventListener('click', () => {
+    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('theme', currentTheme);
+    updateThemeIcons(currentTheme);
+  });
+  
+  function updateThemeIcons(theme) {
+    if (theme === 'dark') {
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+    } else {
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    }
+  }
+
+  /* --- 3. DYNAMIC TYPING EFFECT (BILINGUAL) --- */
+  const typedTextSpan = document.getElementById('typed-text');
+  
+  const words = {
+    id: [
+      "Mahasiswa Sistem Informasi",
+      "Quality Control",
+      "Staf Produksi / Manufaktur",
+      "Draftsman AutoCAD 2D"
+    ],
+    en: [
+      "Information Systems Student",
+      "Quality Control",
+      "Production Staff",
+      "AutoCAD 2D Draftsman"
+    ]
+  };
+  
+  let typingTimer = null;
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  
+  function initTypewriter() {
+    // Clear any active timers
+    if (typingTimer) {
+      clearTimeout(typingTimer);
+    }
+    typedTextSpan.textContent = '';
+    charIndex = 0;
+    isDeleting = false;
+    // Don't reset wordIndex so it continues naturally, just clamp it in case lists vary
+    wordIndex = wordIndex % words[currentLang].length;
+    typeEffect();
+  }
+  
+  function typeEffect() {
+    const currentWordList = words[currentLang];
+    const currentWord = currentWordList[wordIndex];
+    
+    if (isDeleting) {
+      typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+    }
+    
+    let typeSpeed = isDeleting ? 40 : 100;
+    
+    if (!isDeleting && charIndex === currentWord.length) {
+      // Pause at full word
+      typeSpeed = 1500;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % currentWordList.length;
+      // Pause before typing next word
+      typeSpeed = 500;
+    }
+    
+    typingTimer = setTimeout(typeEffect, typeSpeed);
+  }
+  
+  // Start typewriter on load
+  initTypewriter();
+
+  /* --- 4. MOBILE HAMBURGER MENU --- */
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+  });
+  
+  // Close menu when clicking nav link
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+    });
+  });
+
+  /* --- 5. SKILLS FILTERING --- */
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const skillCards = document.querySelectorAll('.skill-card');
+  
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Active state on button
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const filterValue = btn.getAttribute('data-filter');
+      
+      skillCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (filterValue === 'all' || cardCategory === filterValue) {
+          card.style.display = 'block';
+          // Force a tiny stagger entrance
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(10px)';
+          setTimeout(() => {
+            card.style.transition = 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 50);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* --- 6. CERTIFICATE LIGHTBOX MODAL --- */
+  const certCards = document.querySelectorAll('.cert-card');
+  const modal = document.getElementById('certificate-modal');
+  const modalClose = document.getElementById('modal-close');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  
+  // Custom styled visual template for simulated certificates inside modal body
+  function generateSimulatedCertificate(type, lang) {
+    let imgPath = "";
+    if (type === 'autocad') {
+      imgPath = "assets/cert-autocad.png";
+    } else if (type === 'korina') {
+      imgPath = "assets/cert-korina.png";
+    } else if (type === 'lestari') {
+      imgPath = "assets/cert-lestari.png";
+    }
+    
+    return `
+      <div style="border: 3px solid #000; padding: 0.5rem; background-color: #ffffff; box-shadow: 6px 6px 0px #000; display: inline-block; max-width: 100%;">
+        <img src="${imgPath}" alt="Certificate Document" style="max-width: 100%; max-height: 60vh; display: block; border: 1px solid #000;" />
+      </div>
+    `;
+  }
+  
+  certCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const type = card.getAttribute('data-type');
+      const titleId = card.getAttribute('data-title');
+      const titleEn = card.getAttribute('data-title-en');
+      const descId = card.getAttribute('data-desc');
+      const descEn = card.getAttribute('data-desc-en');
+      
+      const title = currentLang === 'id' ? titleId : titleEn;
+      const desc = currentLang === 'id' ? descId : descEn;
+      
+      // Select modal body content areas
+      const modalBody = modal.querySelector('.modal-body');
+      
+      // Clear previous simulated certs
+      const prevCert = modalBody.querySelector('.simulated-cert');
+      if (prevCert) prevCert.remove();
+      
+      // Inject simulated styled credential layout
+      const certHTML = document.createElement('div');
+      certHTML.className = 'simulated-cert';
+      certHTML.style.marginBottom = '1.5rem';
+      certHTML.innerHTML = generateSimulatedCertificate(type, currentLang);
+      
+      modalBody.insertBefore(certHTML, modalTitle);
+      
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Lock background scrolling
+    });
+  });
+  
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Unlock background scrolling
+  }
+  
+  modalClose.addEventListener('click', closeModal);
+  
+  // Close on background click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  /* --- 7. SCROLL REVEAL ANIMATION --- */
+  const revealElements = document.querySelectorAll('.reveal');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        // Stop observing once animated
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters viewport
+  });
+  
+  revealElements.forEach(el => {
+    observer.observe(el);
+  });
+
+  /* --- 8. CONTACT FORM SIMULATION --- */
+  const contactForm = document.getElementById('portfolio-contact-form');
+  const formStatus = document.getElementById('form-status');
+  
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    
+    // Clear styles
+    formStatus.className = 'form-status';
+    formStatus.style.display = 'none';
+    
+    if (!name || !email || !message) {
+      formStatus.classList.add('error');
+      formStatus.textContent = currentLang === 'id' 
+        ? "Harap isi semua kolom input!" 
+        : "Please fill in all inputs!";
+      return;
+    }
+    
+    // Simulate API request loading
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.textContent = currentLang === 'id' ? "Mengirim..." : "Sending...";
+    
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+      
+      formStatus.classList.add('success');
+      formStatus.innerHTML = currentLang === 'id'
+        ? `<strong>Pesan Terkirim!</strong> Terima kasih, ${name}. Saya akan segera membalas email Anda di ${email}.`
+        : `<strong>Message Sent!</strong> Thank you, ${name}. I will get back to you at ${email} shortly.`;
+        
+      contactForm.reset();
+    }, 1500);
+  });
+
+  /* --- 9. HERO PHOTO SLIDER --- */
+  const sliderPrev = document.getElementById('slider-prev');
+  const sliderNext = document.getElementById('slider-next');
+  const sliderImages = document.querySelectorAll('.slider-img');
+  const sliderDots = document.querySelectorAll('.slider-dot');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    if (sliderImages.length === 0) return;
+    sliderImages.forEach(img => img.classList.remove('active'));
+    sliderDots.forEach(dot => dot.classList.remove('active'));
+    
+    currentSlide = (index + sliderImages.length) % sliderImages.length;
+    
+    sliderImages[currentSlide].classList.add('active');
+    sliderDots[currentSlide].classList.add('active');
+  }
+
+  if (sliderPrev && sliderNext) {
+    sliderPrev.addEventListener('click', () => showSlide(currentSlide - 1));
+    sliderNext.addEventListener('click', () => showSlide(currentSlide + 1));
+    
+    sliderDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index'));
+        showSlide(index);
+      });
+    });
+  }
+});
