@@ -271,13 +271,31 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     
-    // Simulate API request loading
+    // Live API request using FormSubmit.co via AJAX
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.disabled = true;
     submitBtn.textContent = currentLang === 'id' ? "Mengirim..." : "Sending...";
     
-    setTimeout(() => {
+    fetch("https://formsubmit.co/ajax/kirjoputra@gmail.com", {
+      method: "POST",
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        message: message
+      })
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Network response was not ok.');
+    })
+    .then(data => {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalBtnText;
       
@@ -287,7 +305,16 @@ document.addEventListener('DOMContentLoaded', () => {
         : `<strong>Message Sent!</strong> Thank you, ${name}. I will get back to you at ${email} shortly.`;
         
       contactForm.reset();
-    }, 1500);
+    })
+    .catch(error => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+      
+      formStatus.classList.add('error');
+      formStatus.textContent = currentLang === 'id'
+        ? "Maaf, gagal mengirim pesan. Silakan hubungi langsung via email/WhatsApp!"
+        : "Failed to send message. Please contact directly via email or WhatsApp!";
+    });
   });
 
   /* --- 9. HERO PHOTO SLIDER --- */
