@@ -335,16 +335,50 @@ document.addEventListener('DOMContentLoaded', () => {
     sliderDots[currentSlide].classList.add('active');
   }
 
+  let heroSliderInterval = null;
+  const autoSlideDelay = 3500; // 3.5 seconds
+
+  function startHeroAutoSlide() {
+    stopHeroAutoSlide();
+    heroSliderInterval = setInterval(() => {
+      showSlide(currentSlide + 1);
+    }, autoSlideDelay);
+  }
+
+  function stopHeroAutoSlide() {
+    if (heroSliderInterval) {
+      clearInterval(heroSliderInterval);
+      heroSliderInterval = null;
+    }
+  }
+
   if (sliderPrev && sliderNext) {
-    sliderPrev.addEventListener('click', () => showSlide(currentSlide - 1));
-    sliderNext.addEventListener('click', () => showSlide(currentSlide + 1));
+    sliderPrev.addEventListener('click', () => {
+      showSlide(currentSlide - 1);
+      startHeroAutoSlide();
+    });
+    sliderNext.addEventListener('click', () => {
+      showSlide(currentSlide + 1);
+      startHeroAutoSlide();
+    });
     
     sliderDots.forEach(dot => {
       dot.addEventListener('click', () => {
         const index = parseInt(dot.getAttribute('data-index'));
         showSlide(index);
+        startHeroAutoSlide();
       });
     });
+
+    // Start auto slide on init
+    startHeroAutoSlide();
+
+    // Pause on hover
+    const heroSliderContainer = document.querySelector('.hero-slider-container');
+    if (heroSliderContainer) {
+      heroSliderContainer.addEventListener('mouseenter', stopHeroAutoSlide);
+      heroSliderContainer.addEventListener('mouseleave', startHeroAutoSlide);
+    }
   }
 
   /* --- 10. PROJECT LIGHTBOX MODAL --- */
