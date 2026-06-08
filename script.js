@@ -346,4 +346,102 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  /* --- 10. PROJECT LIGHTBOX MODAL --- */
+  const projectCards = document.querySelectorAll('.project-card');
+  const projectModal = document.getElementById('project-modal');
+  const projectModalClose = document.getElementById('project-modal-close');
+  const projectModalTitle = document.getElementById('project-modal-title');
+  const projectModalDesc = document.getElementById('project-modal-desc');
+  const projectModalVisual = document.getElementById('project-modal-visual');
+  const projectModalTags = document.getElementById('project-modal-tags');
+  const projectModalLink = document.getElementById('project-modal-link');
+  const projectModalContact = document.getElementById('project-modal-contact');
+
+  let currentProjectTitleId = "";
+  let currentProjectTitleEn = "";
+
+  function openProjectModal(card) {
+    const titleId = card.getAttribute('data-title-id');
+    const titleEn = card.getAttribute('data-title-en');
+    const descId = card.getAttribute('data-desc-id');
+    const descEn = card.getAttribute('data-desc-en');
+    const link = card.getAttribute('data-link');
+    
+    currentProjectTitleId = titleId;
+    currentProjectTitleEn = titleEn;
+
+    // Clone SVG visual content and background color
+    const originalVisual = card.querySelector('.project-visual');
+    projectModalVisual.innerHTML = originalVisual.innerHTML;
+    projectModalVisual.style.backgroundColor = window.getComputedStyle(originalVisual).backgroundColor;
+
+    // Clone tags content
+    projectModalTags.innerHTML = card.querySelector('.project-tags').innerHTML;
+
+    // Set title and description based on language
+    projectModalTitle.textContent = currentLang === 'id' ? titleId : titleEn;
+    projectModalDesc.textContent = currentLang === 'id' ? descId : descEn;
+
+    // Handle Visit Project link button
+    if (link) {
+      projectModalLink.href = link;
+      projectModalLink.style.display = 'inline-block';
+    } else {
+      projectModalLink.style.display = 'none';
+    }
+
+    projectModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Lock background scrolling
+  }
+
+  function closeProjectModal() {
+    projectModal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Unlock background scrolling
+  }
+
+  projectCards.forEach(card => {
+    // Open modal when card is clicked (but ignore if clicking actual anchor links inside card if any)
+    card.addEventListener('click', (e) => {
+      // Don't trigger modal if user clicked something else that is an anchor (like a direct link in card, if any)
+      if (e.target.closest('a') && !e.target.closest('.project-detail-btn')) {
+        return;
+      }
+      openProjectModal(card);
+    });
+  });
+
+  if (projectModalClose) {
+    projectModalClose.addEventListener('click', closeProjectModal);
+  }
+
+  // Close project modal on background click
+  if (projectModal) {
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
+        closeProjectModal();
+      }
+    });
+  }
+
+  // Handle "Tanyakan Detail" in modal - auto-fill contact form message
+  if (projectModalContact) {
+    projectModalContact.addEventListener('click', (e) => {
+      e.preventDefault();
+      const projectTitle = currentLang === 'id' ? currentProjectTitleId : currentProjectTitleEn;
+      const messageInput = document.getElementById('message');
+      if (messageInput) {
+        messageInput.value = currentLang === 'id'
+          ? `Halo Eka, saya tertarik dengan proyek "${projectTitle}" Anda. Bisa tolong bagikan detail lebih lanjut?`
+          : `Hi Eka, I am interested in your "${projectTitle}" project. Could you please share more details?`;
+      }
+      closeProjectModal();
+      
+      // Smooth scroll to contact section
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
 });

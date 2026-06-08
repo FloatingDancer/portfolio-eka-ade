@@ -1271,3 +1271,51 @@ footer .credits {
     width: 100%;
   }
 }
+
+/* --- PROJECT MODAL STYLES --- */
+.project-modal-body {
+  text-align: left !important;
+}
+
+.project-modal-body .modal-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-modal-body .project-tags {
+  margin-bottom: 1.5rem;
+}
+
+.project-modal-body .modal-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+}
+
+.project-modal-visual {
+  width: 100%;
+  aspect-ratio: 1.77; /* Standard 16:9 ratio */
+  border: var(--border-width) solid var(--border-color);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 4px 4px 0px var(--border-color);
+  background-color: var(--primary);
+}
+
+.project-modal-visual svg {
+  width: 80px;
+  height: 80px;
+  color: #000000;
+}
+
+[data-theme="dark"] .project-modal-visual svg {
+  color: #000000;
+}
+
