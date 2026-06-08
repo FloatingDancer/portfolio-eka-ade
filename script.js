@@ -361,6 +361,49 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentProjectTitleId = "";
   let currentProjectTitleEn = "";
 
+  let modalSliderIntervalId = null;
+
+  function initModalSlider() {
+    if (modalSliderIntervalId) clearInterval(modalSliderIntervalId);
+    
+    const slider = projectModalVisual.querySelector('.project-slider');
+    if (!slider) return;
+    
+    const images = slider.querySelectorAll('.project-slider-img');
+    const dots = projectModalVisual.querySelectorAll('.project-slider-dot');
+    let currentIdx = 0;
+    
+    function showImage(idx) {
+      if (images.length === 0) return;
+      images.forEach(img => img.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      
+      currentIdx = (idx + images.length) % images.length;
+      images[currentIdx].classList.add('active');
+      if (dots[currentIdx]) {
+        dots[currentIdx].classList.add('active');
+      }
+    }
+    
+    function startAutoSlide() {
+      if (modalSliderIntervalId) clearInterval(modalSliderIntervalId);
+      modalSliderIntervalId = setInterval(() => {
+        showImage(currentIdx + 1);
+      }, 3000);
+    }
+    
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const idx = parseInt(dot.getAttribute('data-index'));
+        showImage(idx);
+        startAutoSlide();
+      });
+    });
+    
+    startAutoSlide();
+  }
+
   function openProjectModal(card) {
     const titleId = card.getAttribute('data-title-id');
     const titleEn = card.getAttribute('data-title-en');
@@ -371,10 +414,24 @@ document.addEventListener('DOMContentLoaded', () => {
     currentProjectTitleId = titleId;
     currentProjectTitleEn = titleEn;
 
-    // Clone SVG visual content and background color
+    // Clone visual content and background color
     const originalVisual = card.querySelector('.project-visual');
     projectModalVisual.innerHTML = originalVisual.innerHTML;
-    projectModalVisual.style.backgroundColor = window.getComputedStyle(originalVisual).backgroundColor;
+    
+    // Check if it has a slider and initialize
+    const hasSlider = originalVisual.querySelector('.project-slider');
+    if (hasSlider) {
+      projectModalVisual.style.padding = '0';
+      projectModalVisual.style.backgroundColor = 'transparent';
+      initModalSlider();
+    } else {
+      projectModalVisual.style.padding = '';
+      projectModalVisual.style.backgroundColor = window.getComputedStyle(originalVisual).backgroundColor;
+      if (modalSliderIntervalId) {
+        clearInterval(modalSliderIntervalId);
+        modalSliderIntervalId = null;
+      }
+    }
 
     // Clone tags content
     projectModalTags.innerHTML = card.querySelector('.project-tags').innerHTML;
@@ -398,6 +455,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeProjectModal() {
     projectModal.style.display = 'none';
     document.body.style.overflow = 'auto'; // Unlock background scrolling
+    if (modalSliderIntervalId) {
+      clearInterval(modalSliderIntervalId);
+      modalSliderIntervalId = null;
+    }
   }
 
   projectCards.forEach(card => {
@@ -444,4 +505,55 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* --- 11. PROJECT IMAGE SLIDERS --- */
+  function initProjectSliders() {
+    const sliders = document.querySelectorAll('.project-visual .project-slider');
+    sliders.forEach(slider => {
+      const parent = slider.closest('.project-visual');
+      const images = slider.querySelectorAll('.project-slider-img');
+      const dots = parent.querySelectorAll('.project-slider-dot');
+      let currentIdx = 0;
+      let intervalId = null;
+
+      function showImage(idx) {
+        if (images.length === 0) return;
+        images.forEach(img => img.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        
+        currentIdx = (idx + images.length) % images.length;
+        images[currentIdx].classList.add('active');
+        if (dots[currentIdx]) {
+          dots[currentIdx].classList.add('active');
+        }
+      }
+
+      function startAutoSlide() {
+        if (intervalId) clearInterval(intervalId);
+        intervalId = setInterval(() => {
+          showImage(currentIdx + 1);
+        }, 3000);
+      }
+
+      function stopAutoSlide() {
+        if (intervalId) clearInterval(intervalId);
+      }
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation(); // Stop click from bubbling to card modal trigger
+          const idx = parseInt(dot.getAttribute('data-index'));
+          showImage(idx);
+          startAutoSlide(); // Reset timer
+        });
+      });
+
+      parent.addEventListener('mouseenter', stopAutoSlide);
+      parent.addEventListener('mouseleave', startAutoSlide);
+
+      startAutoSlide();
+    });
+  }
+
+  initProjectSliders();
 });
